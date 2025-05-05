@@ -71,6 +71,7 @@
 	$: selectedModelIds = atSelectedModel !== undefined ? [atSelectedModel.id] : selectedModels;
 
 	export let history;
+	export let taskIds = null;
 
 	export let prompt = '';
 	export let files = [];
@@ -394,39 +395,37 @@
 				</div>
 
 				<div class="w-full relative">
-					{#if atSelectedModel !== undefined || selectedToolIds.length > 0 || webSearchEnabled || ($settings?.webSearch ?? false) === 'always' || imageGenerationEnabled || codeInterpreterEnabled}
+					{#if atSelectedModel !== undefined}
 						<div
 							class="px-3 pb-0.5 pt-1.5 text-left w-full flex flex-col absolute bottom-0 left-0 right-0 bg-linear-to-t from-white dark:from-gray-900 z-10"
 						>
-							{#if atSelectedModel !== undefined}
-								<div class="flex items-center justify-between w-full">
-									<div class="pl-[1px] flex items-center gap-2 text-sm dark:text-gray-500">
-										<img
-											crossorigin="anonymous"
-											alt="model profile"
-											class="size-3.5 max-w-[28px] object-cover rounded-full"
-											src={$models.find((model) => model.id === atSelectedModel.id)?.info?.meta
-												?.profile_image_url ??
-												($i18n.language === 'dg-DG'
-													? `/doge.png`
-													: `${WEBUI_BASE_URL}/static/favicon.png`)}
-										/>
-										<div class="translate-y-[0.5px]">
-											Talking to <span class=" font-medium">{atSelectedModel.name}</span>
-										</div>
-									</div>
-									<div>
-										<button
-											class="flex items-center dark:text-gray-500"
-											on:click={() => {
-												atSelectedModel = undefined;
-											}}
-										>
-											<XMark />
-										</button>
+							<div class="flex items-center justify-between w-full">
+								<div class="pl-[1px] flex items-center gap-2 text-sm dark:text-gray-500">
+									<img
+										crossorigin="anonymous"
+										alt="model profile"
+										class="size-3.5 max-w-[28px] object-cover rounded-full"
+										src={$models.find((model) => model.id === atSelectedModel.id)?.info?.meta
+											?.profile_image_url ??
+											($i18n.language === 'dg-DG'
+												? `/doge.png`
+												: `${WEBUI_BASE_URL}/static/favicon.png`)}
+									/>
+									<div class="translate-y-[0.5px]">
+										Talking to <span class=" font-medium">{atSelectedModel.name}</span>
 									</div>
 								</div>
-							{/if}
+								<div>
+									<button
+										class="flex items-center dark:text-gray-500"
+										on:click={() => {
+											atSelectedModel = undefined;
+										}}
+									>
+										<XMark />
+									</button>
+								</div>
+							</div>
 						</div>
 					{/if}
 
@@ -480,14 +479,14 @@
 					{#if recording}
 						<VoiceRecording
 							bind:recording
-							on:cancel={async () => {
+							onCancel={async () => {
 								recording = false;
 
 								await tick();
 								document.getElementById('chat-input')?.focus();
 							}}
-							on:confirm={async (e) => {
-								const { text, filename } = e.detail;
+							onConfirm={async (data) => {
+								const { text, filename } = data;
 								prompt = `${prompt}${text} `;
 
 								recording = false;
@@ -509,7 +508,7 @@
 							}}
 						>
 							<div
-								class="flex-1 flex flex-col relative w-full shadow-lg rounded-3xl border border-gray-100 dark:border-gray-850 hover:border-gray-200 focus-within:border-gray-200 hover:dark:border-gray-800 focus-within:dark:border-gray-800 transition px-1 bg-white/90 dark:bg-gray-400/5 dark:text-gray-100"
+								class="flex-1 flex flex-col relative w-full shadow-lg rounded-3xl border border-gray-50 dark:border-gray-850 hover:border-gray-100 focus-within:border-gray-100 hover:dark:border-gray-800 focus-within:dark:border-gray-800 transition px-1 bg-white/90 dark:bg-gray-400/5 dark:text-gray-100"
 								dir={$settings?.chatDirection ?? 'auto'}
 							>
 								{#if files.length > 0}
@@ -1033,7 +1032,7 @@
 									{/if}
 								</div>
 
-								<div class=" flex justify-between mt-1.5 mb-2.5 mx-0.5 max-w-full" dir="ltr">
+								<div class=" flex justify-between mt-1 mb-2.5 mx-0.5 max-w-full" dir="ltr">
 									<div class="ml-1 self-end flex items-center flex-1 max-w-[80%] gap-0.5">
 										<InputMenu
 											bind:selectedToolIds
@@ -1062,9 +1061,9 @@
 													);
 												}
 											}}
-											uploadOneDriveHandler={async () => {
+											uploadOneDriveHandler={async (authorityType) => {
 												try {
-													const fileData = await pickAndDownloadFile();
+													const fileData = await pickAndDownloadFile(authorityType);
 													if (fileData) {
 														const file = new File([fileData.blob], fileData.name, {
 															type: fileData.blob.type || 'application/octet-stream'
@@ -1102,7 +1101,7 @@
 											</button>
 										</InputMenu>
 
-										<div class="flex gap-[2px] items-center overflow-x-auto scrollbar-none flex-1">
+										<div class="flex gap-1 items-center overflow-x-auto scrollbar-none flex-1">
 											{#if toolServers.length + selectedToolIds.length > 0}
 												<Tooltip
 													content={$i18n.t('{{COUNT}} Available Tools', {
@@ -1132,10 +1131,10 @@
 														<button
 															on:click|preventDefault={() => (webSearchEnabled = !webSearchEnabled)}
 															type="button"
-															class="px-1.5 @xl:px-2.5 py-1.5 flex gap-1.5 items-center text-sm rounded-full font-medium transition-colors duration-300 focus:outline-hidden max-w-full overflow-hidden {webSearchEnabled ||
+															class="px-1.5 @xl:px-2.5 py-1.5 flex gap-1.5 items-center text-sm rounded-full font-medium transition-colors duration-300 focus:outline-hidden max-w-full overflow-hidden border {webSearchEnabled ||
 															($settings?.webSearch ?? false) === 'always'
-																? 'bg-blue-100 dark:bg-blue-500/20 text-blue-500 dark:text-blue-400'
-																: 'bg-transparent text-gray-600 dark:text-gray-300 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'}"
+																? 'bg-blue-100 dark:bg-blue-500/20 border-blue-400/20 text-blue-500 dark:text-blue-400'
+																: 'bg-transparent border-transparent text-gray-600 dark:text-gray-300 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'}"
 														>
 															<GlobeAlt className="size-5" strokeWidth="1.75" />
 															<span
@@ -1152,9 +1151,9 @@
 															on:click|preventDefault={() =>
 																(imageGenerationEnabled = !imageGenerationEnabled)}
 															type="button"
-															class="px-1.5 @xl:px-2.5 py-1.5 flex gap-1.5 items-center text-sm rounded-full font-medium transition-colors duration-300 focus:outline-hidden max-w-full overflow-hidden {imageGenerationEnabled
-																? 'bg-gray-100 dark:bg-gray-500/20 text-gray-600 dark:text-gray-400'
-																: 'bg-transparent text-gray-600 dark:text-gray-300 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 '}"
+															class="px-1.5 @xl:px-2.5 py-1.5 flex gap-1.5 items-center text-sm rounded-full font-medium transition-colors duration-300 focus:outline-hidden max-w-full overflow-hidden border {imageGenerationEnabled
+																? 'bg-gray-50 dark:bg-gray-400/10 border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-400'
+																: 'bg-transparent border-transparent text-gray-600 dark:text-gray-300  hover:bg-gray-100 dark:hover:bg-gray-800 '}"
 														>
 															<Photo className="size-5" strokeWidth="1.75" />
 															<span
@@ -1171,9 +1170,9 @@
 															on:click|preventDefault={() =>
 																(codeInterpreterEnabled = !codeInterpreterEnabled)}
 															type="button"
-															class="px-1.5 @xl:px-2.5 py-1.5 flex gap-1.5 items-center text-sm rounded-full font-medium transition-colors duration-300 focus:outline-hidden max-w-full overflow-hidden {codeInterpreterEnabled
-																? 'bg-gray-100 dark:bg-gray-500/20 text-gray-600 dark:text-gray-400'
-																: 'bg-transparent text-gray-600 dark:text-gray-300 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 '}"
+															class="px-1.5 @xl:px-2.5 py-1.5 flex gap-1.5 items-center text-sm rounded-full font-medium transition-colors duration-300 focus:outline-hidden max-w-full overflow-hidden border {codeInterpreterEnabled
+																? 'bg-gray-50 dark:bg-gray-400/10 border-gray-100  dark:border-gray-700 text-gray-600 dark:text-gray-400  '
+																: 'bg-transparent border-transparent text-gray-600 dark:text-gray-300  hover:bg-gray-100 dark:hover:bg-gray-800 '}"
 														>
 															<CommandLine className="size-5" strokeWidth="1.75" />
 															<span
@@ -1188,7 +1187,7 @@
 									</div>
 
 									<div class="self-end flex space-x-1 mr-1 shrink-0">
-										{#if !history?.currentId || history.messages[history.currentId]?.done == true}
+										{#if (!history?.currentId || history.messages[history.currentId]?.done == true) && ($_user?.role === 'admin' || ($_user?.permissions?.chat?.stt ?? true))}
 											<Tooltip content={$i18n.t('Record voice')}>
 												<button
 													id="voice-input-button"
