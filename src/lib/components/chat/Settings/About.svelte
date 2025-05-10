@@ -73,9 +73,6 @@
 			<a href="https://sozial-ki.de/" target="_blank">BITTE WENDEN SIE SICH BEI PROBLEMEN ODER FRAGEN AN DAS SOZIAL KI TEAM</a>.
 		</div>
 
-
-
-		
 		<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
 			Emoji graphics provided by
 			<a href="https://github.com/jdecked/twemoji" target="_blank">Twemoji</a>, licensed under
