@@ -114,7 +114,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 		</div>
 
 		<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
-			{$i18n.t(UI 'Created by' Timothy J. Baek)}
+			{$i18n.t('Created by')}
 		</div>
 	</div>
 </div>
