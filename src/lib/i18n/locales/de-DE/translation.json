@@ -1088,7 +1088,7 @@
 	"Speech Playback Speed": "Sprachwiedergabegeschwindigkeit",
 	"Speech recognition error: {{error}}": "Spracherkennungsfehler: {{error}}",
 	"Speech-to-Text Engine": "Sprache-zu-Text-Engine",
-	"Sponsor": "Die Nutzeroberfläche von SoKI basiert auf dem kostenlosen und quelloffenen Programm \"Open WebUI\" von Tim J. Baek. Die jeweils gültige Lizenz ist unter https://docs.openwebui.com/license/ einzusehen. Wir bedanken uns bei Tim J. Baek und der Open WebUI Community für die Bereitstellung und stetige Weiterentwicklung dieser Software.",
+	"Disclaimer": "Die Nutzeroberfläche von SoKI basiert auf dem kostenlosen und quelloffenen Programm \"Open WebUI\" von Tim J. Baek. Die jeweils gültige Lizenz ist unter https://docs.openwebui.com/license/ einzusehen. Wir bedanken uns bei Tim J. Baek und der Open WebUI Community für die Bereitstellung und stetige Weiterentwicklung dieser Software.",
 	"Stop": "Stop",
 	"Stop Sequence": "Stop-Sequenz",
 	"Stream Chat Response": "Chat-Antwort streamen",

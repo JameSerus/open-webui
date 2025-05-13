@@ -15,6 +15,7 @@
 
 	import Spinner from '$lib/components/common/Spinner.svelte';
 	import OnBoarding from '$lib/components/OnBoarding.svelte';
+	import Banner from '$lib/components/legal_disclaimer/Banner.svelte';
 
 	const i18n = getContext('i18n');
 
@@ -488,6 +489,9 @@
 						{/if}
 					</div>
 				{/if}
+				<div class="fixed bottom-0 left-0 w-full bg-gray-900 text-xs text-gray-700 dark:text-gray-500 z-50 flex justify-center py-4">
+					<Banner />
+				</div>
 			</div>
 		</div>
 	{/if}
