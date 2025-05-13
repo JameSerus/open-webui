@@ -1,6 +1,6 @@
 services:
   soki:
-    image: JameSerus/owui-mod:latest
+    image: jameserus/owui-mod:latest
     container_name: soki
     volumes:
       - soki:/app/backend/data
