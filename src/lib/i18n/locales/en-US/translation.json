@@ -1088,6 +1088,7 @@
 	"Speech Playback Speed": "",
 	"Speech recognition error: {{error}}": "",
 	"Speech-to-Text Engine": "",
+	"Sponsor": "The user interface of SoKI is based on the free and open-source program \"Open WebUI\" by Tim J. Baek. The applicable license can be viewed at https://docs.openwebui.com/license/. We would like to thank Tim J. Baek and the Open WebUI community for providing and continuously improving this software.",
 	"Stop": "",
 	"Stop Sequence": "",
 	"Stream Chat Response": "",
