@@ -9,4 +9,12 @@ declare global {
 	}
 }
 
+interface ImportMetaEnv {
+  readonly VITE_GLOBAL_MODEL_MAX_RESPONSE_TOKEN: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
+
 export {};
