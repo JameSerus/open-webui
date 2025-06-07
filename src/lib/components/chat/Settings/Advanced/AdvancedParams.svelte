@@ -1052,6 +1052,31 @@
 				</div>
 			{/if}
 		</div>
+		{#if (params?.max_tokens ?? null) !== null}
+			<div class="flex mt-0.5 space-x-2">
+				<div class=" flex-1">
+					<input
+						id="steps-range"
+						type="range"
+						min="-2"
+						max="50000"
+						step="1"
+						bind:value={params.max_tokens}
+						class="w-full h-2 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+					/>
+				</div>
+				<div>
+					<input
+						bind:value={params.max_tokens}
+						type="number"
+						class=" bg-transparent text-center w-14"
+						min="-2"
+						step="1"
+					/>
+				</div>
+			</div>
+		{/if}
+	</div>
 
 		<div class=" py-0.5 w-full justify-between">
 			<Tooltip
