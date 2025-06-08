@@ -236,7 +236,7 @@
 >
 	{#if responseContent === null}
 		{#if !floatingInput}
-			<div
+			<!-- <div
 				class="flex flex-row gap-0.5 shrink-0 p-1 bg-white dark:bg-gray-850 dark:text-gray-100 text-medium rounded-lg shadow-xl"
 			>
 				<button
@@ -269,7 +269,7 @@
 
 					<div class="shrink-0">{$i18n.t('Explain')}</div>
 				</button>
-			</div>
+			</div> -->
 		{:else}
 			<div
 				class="py-1 flex dark:text-gray-100 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-850 w-72 rounded-full shadow-xl"
