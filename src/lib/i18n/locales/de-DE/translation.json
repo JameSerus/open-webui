@@ -1172,7 +1172,7 @@
 	"Speech recognition error: {{error}}": "Spracherkennungsfehler: {{error}}",
 	"Speech-to-Text": "",
 	"Speech-to-Text Engine": "Sprache-zu-Text-Engine",
-	"Disclaimer": "Die Nutzeroberfläche von SoKI basiert auf dem kostenlosen und quelloffenen Programm \"Open WebUI\" von Tim J. Baek. Die jeweils gültige Lizenz ist unter https://docs.openwebui.com/license/ einzusehen. Wir bedanken uns bei Tim J. Baek und der Open WebUI Community für die Bereitstellung und stetige Weiterentwicklung dieser Software.",
+	"Disclaimer": "Die Nutzeroberfläche von SoKI basiert auf dem quelloffenen Programm \"Open WebUI\" von Tim J. Baek. Die jeweils gültige Lizenz ist unter https://docs.openwebui.com/license/ einzusehen. Wir bedanken uns bei der Open-Source Community für die Bereitstellung und Weiterentwicklung quelloffener Software.",
 	"Stop": "Stop",
 	"Stop Generating": "",
 	"Stop Sequence": "Stop-Sequenz",
