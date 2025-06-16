@@ -1076,7 +1076,6 @@
 				</div>
 			</div>
 		{/if}
-	</div>
 
 		<div class=" py-0.5 w-full justify-between">
 			<Tooltip
