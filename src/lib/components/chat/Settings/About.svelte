@@ -68,11 +68,19 @@
 		<hr class=" border-gray-100 dark:border-gray-850" />
 
 		<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
+			Sozial KI nutzt Open WebUI als quelloffene Nutzeroberfläche, Verwaltungs- und Managementplattform für das SoKI Projekt.
+			Es bestehen keine offiziellen Verbindungen oder Beziehungen zwischen SoKI und Open WebUI.
+			<a href="https://sozial-ki.de/" target="_blank">BITTE WENDEN SIE SICH BEI PROBLEMEN ODER FRAGEN AN DAS SOZIAL KI TEAM</a>.
+		</div>
+
+
+
+		
+		<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
 			Emoji graphics provided by
 			<a href="https://github.com/jdecked/twemoji" target="_blank">Twemoji</a>, licensed under
 			<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a>.
 		</div>
-
 		<div>
 			<pre
 				class="text-xs text-gray-400 dark:text-gray-500">Copyright (c) {new Date().getFullYear()} <a
