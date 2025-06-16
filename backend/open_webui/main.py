@@ -1699,29 +1699,32 @@ async def oauth_callback(provider: str, request: Request, response: Response):
 
 @app.get("/manifest.json")
 async def get_manifest_json():
-    return {
-        "name": app.state.WEBUI_NAME,
-        "short_name": app.state.WEBUI_NAME,
-        "description": "SoKI ist ein quelloffenes KI-System für die Soziale Arbeit.",
-        "start_url": "/",
-        "display": "standalone",
-        "background_color": "#343541",
-        "orientation": "natural",
-        "icons": [
-            {
-                "src": "/static/logo.png",
-                "type": "image/png",
-                "sizes": "500x500",
-                "purpose": "any",
-            },
-            {
-                "src": "/static/logo.png",
-                "type": "image/png",
-                "sizes": "500x500",
-                "purpose": "maskable",
-            },
-        ],
-    }
+    if app.state.EXTERNAL_PWA_MANIFEST_URL:
+        return requests.get(app.state.EXTERNAL_PWA_MANIFEST_URL).json()
+    else:
+        return {
+            "name": app.state.WEBUI_NAME,
+            "short_name": app.state.WEBUI_NAME,
+            "description": "SoKI ist ein quelloffenes KI-System für die Soziale Arbeit.",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#343541",
+            "orientation": "any",
+            "icons": [
+                {
+                    "src": "/static/logo.png",
+                    "type": "image/png",
+                    "sizes": "500x500",
+                    "purpose": "any",
+                },
+                {
+                    "src": "/static/logo.png",
+                    "type": "image/png",
+                    "sizes": "500x500",
+                    "purpose": "maskable",
+                },
+            ],
+        }
 
 
 @app.get("/opensearch.xml")
