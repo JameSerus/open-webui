@@ -1059,7 +1059,7 @@
 						id="steps-range"
 						type="range"
 						min="-2"
-						max="50000"
+						max="128000"
 						step="1"
 						bind:value={params.max_tokens}
 						class="w-full h-2 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"

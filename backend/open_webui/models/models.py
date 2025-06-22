@@ -4,12 +4,10 @@ from typing import Optional
 
 from open_webui.internal.db import Base, JSONField, get_db
 from open_webui.env import SRC_LOG_LEVELS
-from open_webui.env import VITE_GLOBAL_MODEL_MAX_RESPONSE_TOKEN
 
 from open_webui.models.users import Users, UserResponse
 
-
-from pydantic import BaseModel, ConfigDict, field_validator, Field
+from pydantic import BaseModel, ConfigDict
 
 from sqlalchemy import or_, and_, func
 from sqlalchemy.dialects import postgresql, sqlite
@@ -30,17 +28,7 @@ log.setLevel(SRC_LOG_LEVELS["MODELS"])
 
 # ModelParams is a model for the data stored in the params field of the Model table
 class ModelParams(BaseModel):
-    max_tokens: Optional[int] = Field(default=VITE_GLOBAL_MODEL_MAX_RESPONSE_TOKEN)
-
     model_config = ConfigDict(extra="allow")
-
-    @field_validator("max_tokens")
-    @classmethod
-    def limit_max_tokens(cls, v):
-        max_allowed = VITE_GLOBAL_MODEL_MAX_RESPONSE_TOKEN
-        if v is not None and v > max_allowed:
-            return max_allowed
-        return v
 
     pass
 
@@ -167,8 +155,6 @@ class ModelsTable:
             }
         )
         try:
-            if model.params.max_tokens > VITE_GLOBAL_MODEL_MAX_RESPONSE_TOKEN:
-                model.params.max_tokens = VITE_GLOBAL_MODEL_MAX_RESPONSE_TOKEN
             with get_db() as db:
                 result = Model(**model.model_dump())
                 db.add(result)
