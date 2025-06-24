@@ -84,13 +84,13 @@
 
 						{#if item?.file?.data?.content}
 							<div class="capitalize shrink-0">
-								{getLineCount(item?.file?.data?.content ?? '')} extracted lines
+								{getLineCount(item?.file?.data?.content ?? '')} extrahierte Zeilen
 							</div>
 
 							<div class="flex items-center gap-1 shrink-0">
 								<Info />
 
-								Formatting may be inconsistent from source.
+								Formatierung kann von der Quelle abweichen.
 							</div>
 						{/if}
 					</div>
@@ -108,9 +108,9 @@
 							>
 								<div class="flex items-center gap-1.5 text-xs">
 									{#if enableFullContent}
-										Using Entire Document
+										Verwendet gesamtes Dokument
 									{:else}
-										Using Focused Retrieval
+										Verwendet Teile des Dokuments
 									{/if}
 									<Switch
 										bind:state={enableFullContent}
