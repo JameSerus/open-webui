@@ -637,7 +637,7 @@ def transcription_handler(request, file_path, metadata):
 
             # Make request to Deepgram API
             r = requests.post(
-                "https://api.deepgram.com/v1/listen?smart_format=true",
+                "https://api.greenpt.ai/v1/listen?smart_format=true",
                 headers=headers,
                 params=params,
                 data=file_data,
