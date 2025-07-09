@@ -561,7 +561,7 @@
 								<div>
 									<Textarea
 										className=" text-sm w-full bg-transparent outline-hidden resize-none overflow-y-hidden "
-										placeholder={`Write your model system prompt content here\ne.g.) You are Mario from Super Mario Bros, acting as an assistant.`}
+										placeholder={`Trage hier die System Prompt für das Modell ein. \nBeispiel: Du bist eine hilfreiche Schreibassistenz. Fasse folgende Inhalte in Form von kurzen Notizen zusammen.`}
 										rows={4}
 										bind:value={system}
 									/>
