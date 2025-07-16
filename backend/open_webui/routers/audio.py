@@ -638,9 +638,15 @@ def transcription_handler(request, file_path, metadata):
             if request.app.state.config.STT_MODEL:
                 params["model"] = request.app.state.config.STT_MODEL
 
+            ###### SOKI-CHANGES
+            params["smart_format"] = "true"  # Enable smart formatting
+            params["detect_language"] = "true"  # Enable language detection
+            params["diarize"] = "true"  # Enable speaker diarization
+            ######
+
             # Make request to Deepgram API
             r = requests.post(
-                "https://api.greenpt.ai/v1/listen?smart_format=true",
+                "https://api.greenpt.ai/v1/listen", ###### SOKI0-CHANGES
                 headers=headers,
                 params=params,
                 data=file_data,
