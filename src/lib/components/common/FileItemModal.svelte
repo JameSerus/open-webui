@@ -16,7 +16,7 @@
 	export let show = false;
 	export let edit = false;
 
-	let enableFullContent = false;
+	let enableFullContent = true;
 
 	let isPdf = false;
 	let isAudio = false;
