@@ -642,6 +642,7 @@ def transcription_handler(request, file_path, metadata):
             params["smart_format"] = "true"  # Enable smart formatting
             params["detect_language"] = "true"  # Enable language detection
             params["diarize"] = "true"  # Enable speaker diarization
+            params["punctuate"] = "true"  # Enable punctuation and capitalization
             ######
 
             # Make request to Deepgram API
