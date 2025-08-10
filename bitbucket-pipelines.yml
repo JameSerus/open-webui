@@ -12,7 +12,9 @@ definitions:
             .
           - docker push "${CR_URL}/soki-infra-image/owui-image:$(date +%Y%m%d-%H%M%S)"
         services:
-          - docker
+          - docker:
+            memory: 4096
+            
 
 pipelines:
   branches:
