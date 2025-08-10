@@ -1,0 +1,24 @@
+definitions:
+  steps:
+    - step: &build-soki
+        name: Build Infrastructure Image
+        script:
+          - export PATH=/usr/bin:${PATH}
+          - echo ${CR_PASSWORD} | docker login -u "${CR_USER}" --password-stdin ${CR_URL}
+          - >-
+            docker build 
+            -t "${CR_URL}/soki/owui-image:$(date +%Y%m%d-%H%M%S)" 
+            -f ./Dockerfile 
+            .
+          - docker push "${CR_URL}/soki-infra-image/owui-image:$(date +%Y%m%d-%H%M%S)"
+        services:
+          - docker
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Change to correct directory
+          script: 
+            - cd dev
+      - step: *build-soki
