@@ -13,7 +13,9 @@ definitions:
           - docker push "${CR_URL}/soki-infra-image/owui-image:$(date +%Y%m%d-%H%M%S)"
         services:
           - docker:
-            memory: 4096
+  services:
+    docker:
+      memory: 4096
             
 
 pipelines:
