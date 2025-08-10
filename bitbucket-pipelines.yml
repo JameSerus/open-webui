@@ -10,12 +10,12 @@ definitions:
             -t "${CR_URL}/soki/owui-image:$(date +%Y%m%d-%H%M%S)" 
             -f ./Dockerfile 
             .
-          - docker push "${CR_URL}/soki-infra-image/owui-image:$(date +%Y%m%d-%H%M%S)"
+          - docker push "${CR_URL}/soki/owui-image:$(date +%Y%m%d-%H%M%S)"
         services:
           - docker
   services:
     docker:
-      memory: 4096
+      memory: 3072
             
 
 pipelines:
