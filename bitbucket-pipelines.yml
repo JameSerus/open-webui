@@ -17,8 +17,4 @@ definitions:
 pipelines:
   branches:
     main:
-      - step:
-          name: Change to correct directory
-          script: 
-            - cd dev
       - step: *build-soki
