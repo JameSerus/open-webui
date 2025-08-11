@@ -22,3 +22,5 @@ pipelines:
   branches:
     main:
       - step: *build-soki
+        runs-on:
+          - self.hosted
