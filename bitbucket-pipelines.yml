@@ -4,13 +4,14 @@ definitions:
         name: Build Infrastructure Image
         script:
           - export PATH=/usr/bin:${PATH}
+          - TAG=$(date +%Y%m%d-%H%M%S)
           - echo ${CR_PASSWORD} | docker login -u "${CR_USER}" --password-stdin ${CR_URL}
           - >-
             docker build 
-            -t "${CR_URL}/soki/owui-image:$(date +%Y%m%d-%H%M%S)" 
+            -t "${CR_URL}/soki/owui-image:${TAG}" 
             -f ./Dockerfile 
             .
-          - docker push "${CR_URL}/soki/owui-image:$(date +%Y%m%d-%H%M%S)"
+          - docker push "${CR_URL}/soki/owui-image:${TAG}"
         services:
           - docker
         runs-on:
