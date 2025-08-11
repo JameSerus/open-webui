@@ -24,4 +24,5 @@ pipelines:
       - step: *build-soki
         runs-on:
           - self.hosted
+          - linux
         size: 8x
