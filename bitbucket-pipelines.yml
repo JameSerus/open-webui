@@ -13,9 +13,6 @@ definitions:
           - docker push "${CR_URL}/soki/owui-image:$(date +%Y%m%d-%H%M%S)"
         services:
           - docker
-        runs-on:
-          - self.hosted
-          - linux
         size: 8x
   services:
     docker:
