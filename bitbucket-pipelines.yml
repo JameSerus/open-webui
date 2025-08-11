@@ -15,7 +15,6 @@ definitions:
           - docker
   services:
     docker:
-      size: 4x
       memory: 12288
             
 
@@ -25,3 +24,4 @@ pipelines:
       - step: *build-soki
         runs-on:
           - self.hosted
+        size: 4x
