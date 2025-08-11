@@ -15,7 +15,8 @@ definitions:
           - docker
   services:
     docker:
-      memory: 3072
+      size: 4x
+      memory: 12288
             
 
 pipelines:
