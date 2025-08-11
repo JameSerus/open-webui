@@ -19,7 +19,7 @@ definitions:
         size: 8x
   services:
     docker:
-      memory: 2048
+      memory: 12288
             
 
 pipelines:
