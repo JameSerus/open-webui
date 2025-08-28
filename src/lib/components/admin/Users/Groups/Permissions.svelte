@@ -20,28 +20,28 @@
 			public_tools: false
 		},
 		chat: {
-			controls: true,
+			controls: false,
 			valves: true,
 			system_prompt: true,
 			params: true,
 			file_upload: true,
 			delete: true,
-			edit: true,
+			edit: false,
 			share: true,
 			export: true,
 			stt: true,
-			tts: true,
-			call: true,
-			multiple_models: true,
+			tts: false,
+			call: false,
+			multiple_models: false,
 			temporary: true,
 			temporary_enforced: false
 		},
 		features: {
 			direct_tool_servers: false,
-			web_search: true,
-			image_generation: true,
-			code_interpreter: true,
-			notes: true
+			web_search: false,
+			image_generation: false,
+			code_interpreter: false,
+			notes: false
 		}
 	};
 
