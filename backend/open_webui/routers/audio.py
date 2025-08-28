@@ -655,13 +655,6 @@ def transcription_handler(request, file_path, metadata):
                 if language:
                     params["language"] = language
 
-                ###### SOKI-CHANGES
-            params["smart_format"] = "true"  # Enable smart formatting
-            params["detect_language"] = "true"  # Enable language detection
-            params["diarize"] = "true"  # Enable speaker diarization
-            params["punctuate"] = "true"  # Enable punctuation and capitalization
-            ######
-
             # Make request to Deepgram API
                 r = requests.post(
                     "https://api.greenpt.ai/v1/listen", ###### SOKI0-CHANGES
@@ -673,6 +666,13 @@ def transcription_handler(request, file_path, metadata):
                 if r.status_code == 200:
                     # Successful transcription
                     break
+
+            ###### SOKI-CHANGES
+            params["smart_format"] = "true"  # Enable smart formatting
+            params["detect_language"] = "true"  # Enable language detection
+            params["diarize"] = "true"  # Enable speaker diarization
+            params["punctuate"] = "true"  # Enable punctuation and capitalization
+            ######
 
             r.raise_for_status()
             response_data = r.json()
