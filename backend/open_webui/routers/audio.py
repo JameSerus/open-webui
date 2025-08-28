@@ -589,6 +589,7 @@ def transcription_handler(request, file_path, metadata):
             for language in languages:
                 payload = {
                     "model": request.app.state.config.STT_MODEL,
+                    "diarize": "true",
                 }
 
                 if language:
