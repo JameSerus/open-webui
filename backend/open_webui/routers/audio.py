@@ -653,7 +653,7 @@ def transcription_handler(request, file_path, metadata):
 
                 if language:
                     params["language"] = language
-
+                
                 ###### SOKI-CHANGES
                 params["smart_format"] = "true"  # Enable smart formatting
                 params["detect_language"] = "true"  # Enable language detection
@@ -663,7 +663,7 @@ def transcription_handler(request, file_path, metadata):
 
                 # Make request to Deepgram API
                 r = requests.post(
-                    "https://api.greenpt.ai/v1/listen", ###### SOKI0-CHANGES
+                    "https://api.greenpt.ai/v1/listen",
                     headers=headers,
                     params=params,
                     data=file_data,
