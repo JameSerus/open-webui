@@ -269,7 +269,6 @@
 							} else {
 								actionHandler(action.id);
 							}
-<<<<<<< HEAD
 						}, 0);
 					}}
 				>
@@ -289,17 +288,6 @@
 					<div class="shrink-0">{$i18n.t('Explain')}</div>
 				</button>
 			</div> -->
-=======
-						}}
-					>
-						{#if action.icon}
-							<svelte:component this={action.icon} className="size-3 shrink-0" />
-						{/if}
-						<div class="shrink-0">{action.label}</div>
-					</button>
-				{/each}
-			</div>
->>>>>>> upstream/main
 		{:else}
 			<div
 				class="py-1 flex dark:text-gray-100 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-850 w-72 rounded-full shadow-xl"

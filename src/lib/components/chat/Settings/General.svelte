@@ -236,8 +236,6 @@
 					</select>
 				</div>
 			</div>
-<<<<<<< HEAD
-=======
 			{#if $i18n.language === 'en-US' && !($config?.license_metadata ?? false)}
 				<div
 					class="mb-2 text-xs {($settings?.highContrastMode ?? false)
@@ -256,7 +254,6 @@
 					</a>
 				</div>
 			{/if}
->>>>>>> upstream/main
 
 			<div>
 				<div class=" py-0.5 flex w-full justify-between">

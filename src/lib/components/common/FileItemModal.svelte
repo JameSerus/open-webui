@@ -143,15 +143,6 @@
 
 						{#if item?.file?.data?.content}
 							<div class="capitalize shrink-0">
-<<<<<<< HEAD
-								{getLineCount(item?.file?.data?.content ?? '')} extrahierte Zeilen
-							</div>
-
-							<div class="flex items-center gap-1 shrink-0">
-								<Info />
-
-								Formatierung kann von der Quelle abweichen.
-=======
 								{$i18n.t('{{COUNT}} extracted lines', {
 									COUNT: getLineCount(item?.file?.data?.content ?? '')
 								})}
@@ -159,7 +150,6 @@
 
 							<div class="flex items-center gap-1 shrink-0">
 								• {$i18n.t('Formatting may be inconsistent from source.')}
->>>>>>> upstream/main
 							</div>
 						{/if}
 
@@ -183,15 +173,9 @@
 							>
 								<div class="flex items-center gap-1.5 text-xs">
 									{#if enableFullContent}
-<<<<<<< HEAD
-										Verwendet gesamtes Dokument
-									{:else}
-										Verwendet Teile des Dokuments
-=======
 										{$i18n.t('Using Entire Document')}
 									{:else}
 										{$i18n.t('Using Focused Retrieval')}
->>>>>>> upstream/main
 									{/if}
 									<Switch
 										bind:state={enableFullContent}

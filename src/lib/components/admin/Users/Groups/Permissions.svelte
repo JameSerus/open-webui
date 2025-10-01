@@ -21,24 +21,17 @@
 			public_notes: false
 		},
 		chat: {
-<<<<<<< HEAD
 			controls: false,
 			file_upload: true,
 			delete: true,
 			edit: false,
-=======
-			controls: true,
 			valves: true,
 			system_prompt: true,
 			params: true,
-			file_upload: true,
-			delete: true,
 			delete_message: true,
 			continue_response: true,
 			regenerate_response: true,
 			rate_response: true,
-			edit: true,
->>>>>>> upstream/main
 			share: true,
 			export: true,
 			stt: true,
