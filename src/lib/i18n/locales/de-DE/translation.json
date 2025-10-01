@@ -1429,7 +1429,7 @@
 	"Sign Out": "Abmelden",
 	"Sign up": "Registrieren",
 	"Sign up to {{WEBUI_NAME}}": "Bei {{WEBUI_NAME}} registrieren",
-	"Significantly improves accuracy by using an LLM to enhance tables, forms, inline math, and layout detection. Will increase latency. Defaults to False.": "Verbessert die Genauigkeit erheblich, indem ein LLM zur Verbesserung von Tabellen, Formularen, mathematischen Formeln und Layout-Erkennung verwendet wird. Erhöht die Latenz. Standardmäßig deaktiviert.",
+	"Significantly improves accuracy by using an LLM to enhance tables, forms, inline math, and layout detection. Will increase latency. Defaults to False.": "Verbessert die Genauigkeit indem ein LLM verwendet wird um Tabellen, Formulare, Inline-Mathematik und Layout-Erkennung zu verbessern. Erhöht die Latenz. Standardmäßig deaktiviert.",
 	"Signing in to {{WEBUI_NAME}}": "Wird bei {{WEBUI_NAME}} angemeldet",
 	"Sink List": "Senkenliste",
 	"sk-1234": "sk-1234",

@@ -228,11 +228,11 @@ Generate a concise, 3-5 word title with an emoji summarizing the content in the 
 JSON format: { "title": "your concise title here" }
 ### Examples:
 - { "title": "📉 Aktienmarkt Trends" },
-- { "title": "🍪 Perfektes Schokoladenkeks Rezept" },
-- { "title": "Entwicklung von Musikstreaming" },
-- { "title": "Home-Office Produktivitäts Tipps" },
+- { "title": "🍪 Perfektes Schokoladekeksgit Rezept" },
+- { "title": "Evolution des Musikstreamings" },
+- { "title": "Tipps zur Produktivität im Homeoffice" },
 - { "title": "Künstliche Intelligenz im Gesundheitswesen" },
-- { "title": "🎮 Videospiel Entwicklung Basics" }
+- { "title": "🎮 Einblicke in die Videospielentwicklung" }
 ### Content:
 <content>
 ${content}

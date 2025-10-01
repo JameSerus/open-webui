@@ -269,24 +269,14 @@
 							} else {
 								actionHandler(action.id);
 							}
-						}, 0);
-					}}
-				>
-					<ChatBubble className="size-3 shrink-0" />
-
-					<div class="shrink-0">{$i18n.t('Ask')}</div>
-				</button>
-				<button
-					class="px-1 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-sm flex items-center gap-1 min-w-fit"
-					on:click={() => {
-						selectedText = window.getSelection().toString();
-						explainHandler();
-					}}
-				>
-					<LightBulb className="size-3 shrink-0" />
-
-					<div class="shrink-0">{$i18n.t('Explain')}</div>
-				</button>
+						}}
+					>
+						{#if action.icon}
+							<svelte:component this={action.icon} className="size-3 shrink-0" />
+						{/if}
+						<div class="shrink-0">{action.label}</div>
+					</button>
+				{/each}
 			</div> -->
 		{:else}
 			<div
