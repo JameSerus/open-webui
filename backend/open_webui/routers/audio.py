@@ -661,7 +661,7 @@ def transcription_handler(request, file_path, metadata):
                 params["punctuate"] = "true"  # Enable punctuation and capitalization
                 ######
 
-            # Make request to Deepgram API
+                # Make request to Deepgram API
                 r = requests.post(
                     "https://api.greenpt.ai/v1/listen", ###### SOKI0-CHANGES
                     headers=headers,
