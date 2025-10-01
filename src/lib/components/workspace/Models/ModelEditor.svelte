@@ -81,15 +81,6 @@
 	let params = {
 		system: ''
 	};
-	let capabilities = {
-		vision: undefined,
-		file_upload: true,
-		web_search: undefined,
-		image_generation: undefined,
-		code_interpreter: undefined,
-		citations: undefined,
-		usage: undefined
-	};
 
 	let knowledge = [];
 	let toolIds = [];
