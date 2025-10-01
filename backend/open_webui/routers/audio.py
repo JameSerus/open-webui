@@ -653,7 +653,7 @@ def transcription_handler(request, file_path, metadata):
 
                 if language:
                     params["language"] = language
-                
+
                 ###### SOKI-CHANGES
                 params["smart_format"] = "true"  # Enable smart formatting
                 params["detect_language"] = "true"  # Enable language detection
