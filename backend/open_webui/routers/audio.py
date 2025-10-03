@@ -652,8 +652,8 @@ def transcription_handler(request, file_path, metadata):
                 if request.app.state.config.STT_MODEL:
                     params["model"] = request.app.state.config.STT_MODEL
 
-                #    if language:
-                #        params["language"] = language
+                if language:
+                    params["language"] = language
 
                 ###### SOKI-CHANGES
                 params["smart_format"] = "true"  # Enable smart formatting
